@@ -142,12 +142,12 @@ interface ObjectConstructor {
     getPrototypeOf(o: any): any;
 
     /**
-      * Gets the own property descriptor of the specified object.
-      * An own property descriptor is one that is defined directly on the object and is not inherited from the object's prototype.
+      * Returns a property descriptor for an own property (that is, one directly present on an object and not in the object's prototype chain) of a given object.
       * @param o Object that contains the property.
       * @param p Name of the property.
-    */
-    getOwnPropertyDescriptor(o: any, p: string): PropertyDescriptor;
+      * @returns A property descriptor of the given property if it exists on the object, undefined otherwise.
+      */
+    getOwnPropertyDescriptor(o: any, p: string): PropertyDescriptor | undefined;
 
     /**
       * Returns the names of the own properties of an object. The own properties of an object are those that are defined directly
@@ -4418,13 +4418,12 @@ interface ObjectConstructor {
     setPrototypeOf(o: any, proto: object | null): any;
 
     /**
-     * Gets the own property descriptor of the specified object.
-     * An own property descriptor is one that is defined directly on the object and is not
-     * inherited from the object's prototype.
+     * Returns a property descriptor for an own property (that is, one directly present on an object and not in the object's prototype chain) of a given object.
      * @param o Object that contains the property.
      * @param p Name of the property.
+     * @returns A property descriptor of the given property if it exists on the object, undefined otherwise.
      */
-    getOwnPropertyDescriptor(o: any, propertyKey: PropertyKey): PropertyDescriptor;
+    getOwnPropertyDescriptor(o: any, propertyKey: PropertyKey): PropertyDescriptor | undefined;
 
     /**
      * Adds a property to an object, or modifies attributes of an existing property.
